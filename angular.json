@@ -3,5 +3,127 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "jpo-side-menu": {
+      "projectType": "library",
+      "root": "projects/jpo-side-menu",
+      "sourceRoot": "projects/jpo-side-menu/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/jpo-side-menu/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/jpo-side-menu/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/jpo-side-menu/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/jpo-side-menu/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "jpo-testbed-app": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/jpo-testbed-app",
+      "sourceRoot": "projects/jpo-testbed-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/jpo-testbed-app",
+            "index": "projects/jpo-testbed-app/src/index.html",
+            "browser": "projects/jpo-testbed-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/jpo-testbed-app/tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/jpo-testbed-app/public"
+              }
+            ],
+            "styles": [
+              "projects/jpo-testbed-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "jpo-testbed-app:build:production"
+            },
+            "development": {
+              "buildTarget": "jpo-testbed-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/jpo-testbed-app/tsconfig.spec.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "projects/jpo-testbed-app/public"
+              }
+            ],
+            "styles": [
+              "projects/jpo-testbed-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }
