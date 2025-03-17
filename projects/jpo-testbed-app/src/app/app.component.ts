@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { JpoSideMenuComponent} from 'jpo-side-menu'
+import { JpoSideMenuComponent, TitleColor} from 'jpo-side-menu'
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,4 +10,7 @@ import { JpoSideMenuComponent} from 'jpo-side-menu'
 })
 export class AppComponent {
   title = 'jpo-testbed-app';
+  titleColorReference = TitleColor;
+  isAuthenticated = signal(true)
+
 }

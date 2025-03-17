@@ -10,7 +10,7 @@
     "jpo-side-menu:build": "ng build jpo-side-menu",
     "jpo-side-menu:lint": "ng lint jpo-side-menu",
     "jpo-side-menu:test": "ng test jpo-side-menu --no-watch --no-progress --browsers=ChromeHeadless",
-    "jpo-side-menu:publish": "npm run jpo-side-menu:test && npm run jpo-side-menu:build && npm publish dist/jpo-side-menu"
+    "jpo-side-menu:publish": "npm run jpo-side-menu:test && npm run jpo-side-menu:build && npm publish dist/jpo-side-menu/"
   },
   "private": true,
   "dependencies": {

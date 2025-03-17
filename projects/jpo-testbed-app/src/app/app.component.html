@@ -1,4 +1,8 @@
 <h1 class="text-3xl font-bold underline">
   Hello world!
 </h1>
-<lib-jpo-side-menu></lib-jpo-side-menu>
+<lib-jpo-side-menu 
+[isAuthenticated]="isAuthenticated()"
+(onSignIn)="isAuthenticated.set(true)"
+(onSignOut)="isAuthenticated.set(false)"
+[titleColor]="titleColorReference.green"></lib-jpo-side-menu>
