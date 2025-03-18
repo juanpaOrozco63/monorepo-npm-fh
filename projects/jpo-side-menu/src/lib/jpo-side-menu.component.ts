@@ -18,6 +18,8 @@ export enum TitleColor  {
 })
 export class JpoSideMenuComponent {
   isAuthenticated = input(false);
+  title = input('JPO');
+  subtitle = input('Corp');
   onSignOut = output();
   onSignIn = output();
   titleColor = input<TitleColor>(TitleColor.purple);
